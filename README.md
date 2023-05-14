@@ -72,3 +72,7 @@ The Quarkus application configuration is located in `src/main/resources/applicat
 Easily start your Reactive RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+
+### Loading testing api
+
+    k6 run --vus 100 --duration 600s loadTest.js

@@ -2,9 +2,13 @@ quarkus:
   test:
     continuous-testing: disabled
 
+  http:
+    port: 9090
+
   datasource:
     db-kind: postgresql
     username: quarkus
     password: quarkus
     reactive:
       url: postgresql://localhost:5432/quarkus
+      max-size: 20

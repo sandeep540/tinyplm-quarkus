@@ -11,7 +11,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.core.MediaType;
 import org.jboss.resteasy.reactive.RestResponse;
 import org.rapid.model.Product;
-
+import io.vertx.mutiny.pgclient.PgPool;
 import java.net.URI;
 
 @Path("/api/products")
@@ -22,9 +22,11 @@ import java.net.URI;
 public class ProductResource {
 
     @Inject
-    io.vertx.mutiny.pgclient.PgPool client;
+    PgPool client;
 
-    private static final Logger LOG = Logger.getLogger(ProductResource.class);
+    @Inject
+    Logger log;
+
 
     @GET
     @Path("{id}")
@@ -34,7 +36,7 @@ public class ProductResource {
 
     @GET
     public Multi<Product> get() {
-        LOG.info("get All method");
+        //log.info("get All method");
         return Product.findAll(client);
     }
 
